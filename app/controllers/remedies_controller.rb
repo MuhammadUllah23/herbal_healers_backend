@@ -3,4 +3,8 @@ class RemediesController < ApplicationController
         remedies = Remedy.all
         render json: remedies 
     end
+
+    def create
+         remedy = Remedy.new(remedy_params)
+    end
 end
