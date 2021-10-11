@@ -6,11 +6,21 @@ class RemediesController < ApplicationController
 
     def create
          remedy = Remedy.new(remedy_params)
+        #byebug
          if remedy.save
             render json: remedy
          else
             render json: {error: "Could not create Remedy"} 
          end
+    end
+
+    def update 
+        remedy = Remedy.find_by_id(params[:id])
+        if remedy.update
+            render json: remedy
+        else
+            render json: {error: "Could not update Remedy"} 
+        end
     end
 
     private
