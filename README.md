@@ -1,6 +1,6 @@
 frontend link: https://github.com/MuhammadUllah23/herbal_healers_frontend
 
-My Rails Api and Javascript Project allows people to create home made remedies for commom illnesses. It allows them to edit and delete their remedies.
+Herbal Healers allows people to create home made remedies for commom illnesses. It allows them to edit and delete their remedies. Herbal Healers is a single page Javascript application which uses a Rails API as a backend.
 
 # Installation
 1. Fork and clone this repo and the backend using the link above.
