@@ -8,7 +8,7 @@ class RemediesController < ApplicationController
          remedy = Remedy.new(remedy_params)
         #byebug
          if remedy.save
-            render json: remedy
+            render json: remedy 
          else
             render json: {error: "Could not create Remedy"} 
          end
@@ -16,11 +16,17 @@ class RemediesController < ApplicationController
 
     def update 
         remedy = Remedy.find_by_id(params[:id])
-        if remedy.update
+        if remedy.update(remedy_params)
             render json: remedy
         else
             render json: {error: "Could not update Remedy"} 
         end
+    end
+
+    def destroy
+        remedy = Remedy.find_by_id(params[:id])
+        remedy.destroy
+        render json: {message: "#{remedy.name} has been deleted"}
     end
 
     private
