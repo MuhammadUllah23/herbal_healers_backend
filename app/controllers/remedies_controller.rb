@@ -1,5 +1,6 @@
 class RemediesController < ApplicationController
     def index
+        #byebug
         remedies = Remedy.all
         render json: remedies 
     end
@@ -10,7 +11,7 @@ class RemediesController < ApplicationController
          if remedy.save
             render json: remedy 
          else
-            render json: {error: "Could not create Remedy"} 
+            render json: {message: "Make sure to fill all boxes."} 
          end
     end
 
@@ -23,15 +24,11 @@ class RemediesController < ApplicationController
         end
     end
 
-    def destroy
-        remedy = Remedy.find_by_id(params[:id])
-        remedy.destroy
-        render json: {message: "#{remedy.name} has been deleted"}
-    end
-
     private
 
     def remedy_params
         params.require(:remedy).permit(:name, :benefits, :ingredients, :steps, :illness_id)
     end
+
+    
 end

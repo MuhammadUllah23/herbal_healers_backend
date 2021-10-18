@@ -3,4 +3,6 @@ class IllnessesController < ApplicationController
         illnesses = Illness.all
         render json: illnesses
     end
+    
+    
 end
